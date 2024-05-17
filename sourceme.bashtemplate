@@ -1,0 +1,2 @@
+export WIFI_SSID=${WIFI_SSID:"YourWiFiNetworkName"}
+export WIFI_KEY=${WIFI_KEY:"YourWiFiKeyHere"}

@@ -1,4 +1,9 @@
+# From the template
 build
 .vscode
 valgrind-out.txt
 test.sh.log
+
+# Local environment variables
+sourceme.*
+!sourceme.*template
