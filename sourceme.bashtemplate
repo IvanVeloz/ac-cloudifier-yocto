@@ -1,2 +1,4 @@
+# Copy this file and name it "sourceme.bash". Then change these parameters.
 export WIFI_SSID=${WIFI_SSID:"YourWiFiNetworkName"}
 export WIFI_KEY=${WIFI_KEY:"YourWiFiKeyHere"}
+export WIFI_REGION=${WIFI_REGION:"US"}
