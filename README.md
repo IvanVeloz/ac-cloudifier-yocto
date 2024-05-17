@@ -9,3 +9,5 @@ Repositories:
 * [IvanVeloz/ac-cloudifier](https://github.com/IvanVeloz/ac-cloudifier) contains the application code. It targets Raspbian and/or the project's Yocto build.
 * [IvanVeloz/ac-cloudifier-yocto](https://github.com/IvanVeloz/ac-cloudifier-yocto) contains the Yocto build.
 * [IvanVeloz/ac-cloudifier-demo](https://github.com/IvanVeloz/ac-cloudifier-demo) contains code snippets to demonstrate the drivers and hardware work. It targets Raspbian and/or the project's Yocto build.
+
+The base for this repo is on the `aesd-yocto` branch and is based on the instructions from the [yocto-assignments-base wiki](https://github.com/cu-ecen-aeld/yocto-assignments-base/wiki/Build-basic-YOCTO-image-for-RaspberryPi).
