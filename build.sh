@@ -12,6 +12,8 @@ source poky/oe-init-build-env rpi-build
 # Add layers the project is dependent on
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-networking
 
 CONFLINE="MACHINE = \"raspberrypi0-2w-64\""
 CONFFILE="../meta-aesd/conf/machine/raspberrypi0-2w-64.conf"
