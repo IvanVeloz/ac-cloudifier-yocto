@@ -30,11 +30,16 @@ jobs:
             if: always()
             run: |
               ssh-add -D
-          - name: Run full test
-            timeout-minutes: 15
-            run: |
-               docker run --rm \
-                 -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
-                 cuaesd/aesd-autotest:assignment6-yocto \
-                 --workdir=${GITHUB_WORKSPACE} \
-                 ./full-test.sh
+# For the final project, I will not be using automatic testing, just building.
+# Automatic testing is not a requirement for the final assignment. A video 
+# demonstration is used instead.
+#          - name: Run full test
+#            timeout-minutes: 15
+#            run: |
+#               docker run --rm \
+#                 -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+#                 cuaesd/aesd-autotest:assignment6-yocto \
+#                 --workdir=${GITHUB_WORKSPACE} \
+#                 ./full-test.sh
+
+# An extra step to publish a release would be nice to have here.
