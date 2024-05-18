@@ -1,15 +1,19 @@
 #!/bin/bash
 # Script to build image for qemu.
-# Author: Siddhant Jajoo.
+# Author: Siddhant Jajoo, Ivan Veloz
 
 git submodule init
 git submodule sync
 git submodule update
 
 # local.conf won't exist until this step on first execution
-source poky/oe-init-build-env
+source poky/oe-init-build-env rpi-build
 
-CONFLINE="MACHINE = \"qemuarm64\""
+# Add layers the project is dependent on
+bitbake-layers add-layer ../meta-config
+bitbake-layers add-layer ../meta-raspberrypi
+
+CONFLINE="MACHINE = \"raspberrypi0-2w-64\""
 
 cat conf/local.conf | grep "${CONFLINE}" > /dev/null
 local_conf_info=$?
