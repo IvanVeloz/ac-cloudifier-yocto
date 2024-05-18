@@ -2,7 +2,7 @@
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-DEPENDS:packagegroup-meta-oe-connectivity = "lirc"
+DEPENDS += "lirc"
 
 # TODO: Set this  with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
@@ -10,7 +10,7 @@ SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier-demo;protocol=ssh;branch
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "d177f7ca4c4f14f930e8a5e29bb86e347721cbe0"
+SRCREV = "66019af936044e426fcdeb0c1a5750b5b6b969fc"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -41,8 +41,12 @@ do_install () {
 	# and
 	# https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-S
 	# See example at https://github.com/cu-ecen-aeld/ecen5013-yocto/blob/ecen5013-hello-world/meta-ecen5013/recipes-ecen5013/ecen5013-hello-world/ecen5013-hello-world_git.bb
+	install -d "${D}/usr/bin/"
+	install -m 0755 "${S}/lircdemo" "${D}/usr/bin/lircdemo"
+	#install -d ${D}/etc/init.d/
+	#install -m 0755 "${S}/aesdsocket-start-stop.sh" "${D}/etc/init.d/aesdsocket-start-stop.sh"
+	#mkdir -p "${D}/etc/rc5.d/"
+	#ln -sf "../init.d/aesdsocket-start-stop.sh" "${D}/etc/rc5.d/S99aesdsocket"
 }
 
-RDEPENDS:packagegroup-meta-oe-connectivity += "\
-    lirc \
-"
+RDEPENDS: += "lirc"
