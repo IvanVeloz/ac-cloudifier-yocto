@@ -10,8 +10,8 @@ git submodule update
 source poky/oe-init-build-env rpi-build
 
 # Add layers the project is dependent on
-bitbake-layers add-layer ../meta-config
 bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-openembedded/meta-oe
 
 CONFLINE="MACHINE = \"raspberrypi0-2w-64\""
 CONFFILE="../meta-aesd/conf/machine/raspberrypi0-2w-64.conf"
@@ -41,4 +41,6 @@ else
 fi
 
 set -e
+bitbake-layers show-layers
+echo "STARTING BUILD"
 bitbake core-image-aesd
