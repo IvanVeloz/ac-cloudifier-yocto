@@ -1,0 +1,1 @@
+You need to fill out the `core-image-aesd-secrets.bb.template` template and rename it to `core-image-aesd-secrets.bb`, then rebuild. In this file are all the secrets and sensitive information you don't want floating around on git.
