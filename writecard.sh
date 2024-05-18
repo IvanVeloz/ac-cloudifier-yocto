@@ -9,5 +9,4 @@ if [ -z "$1" ]; then
 else
     sudo bmaptool copy ${RPI_ROOTFS_BZ2} ${1}
     sync
-    udisksctl power-off -b ${1}
 fi
