@@ -16,7 +16,8 @@ bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-networking
 
 CONFLINE="MACHINE = \"raspberrypi0-2w-64\""
-CONFFILE="../meta-aesd/conf/machine/raspberrypi0-2w-64.conf"
+MACHINEFILE="../meta-aesd/conf/machine/raspberrypi0-2w-64.conf"
+DISTROFILE="../meta-aesd/conf/distro/ac-cloudifier.conf"
 
 cat conf/local.conf | grep "${CONFLINE}" > /dev/null
 local_conf_info=$?
@@ -24,8 +25,10 @@ local_conf_info=$?
 if [ $local_conf_info -ne 0 ];then
 	echo "Append ${CONFLINE} in the local.conf file"
 	echo ${CONFLINE} >> conf/local.conf
-	echo "Append contents of ${CONFFILE} in the local.conf file"
-	cat ${CONFFILE} >> conf/local.conf
+	echo "Append contents of ${MACHINEFILE} in the local.conf file"
+	cat ${MACHINEFILE} >> conf/local.conf
+	echo "Append contents of ${DISTROFILE} in the local.conf file"
+	cat ${DISTROFILE} >> conf/local.conf
 	
 else
 	echo "${CONFLINE} already exists in the local.conf file"
