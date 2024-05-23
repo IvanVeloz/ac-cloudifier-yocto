@@ -18,4 +18,6 @@ CORE_IMAGE_EXTRA_INSTALL += "opencvdemo"
 
 # pigpiod needs to be installed globally for the systemd service to be installed
 CORE_IMAGE_EXTRA_INSTALL += "pigpio-bin-pigpiod"
+# adding pigs for pigpio control through the command line
+CORE_IMAGE_EXTRA_INSTALL += "pigpio-bin-pigs"
 
