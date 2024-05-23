@@ -25,8 +25,7 @@ jobs:
                  -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
                  cuaesd/aesd-autotest:assignment6-yocto \
                  --workdir=${GITHUB_WORKSPACE} \
-                 touch ./meta-aesd/recipes-aesd-assignments\
-                 /wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf
+                 touch ./meta-aesd/recipes-aesd-assignments/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf
           - name: Run build
             timeout-minutes: 600
             run: |
