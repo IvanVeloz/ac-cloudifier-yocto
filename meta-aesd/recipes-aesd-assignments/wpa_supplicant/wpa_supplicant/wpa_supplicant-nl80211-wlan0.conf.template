@@ -1,0 +1,16 @@
+### MODIFY THIS FILE AND COPY IT TO wpa_supplicant-nl80211-wlan0.conf ###
+
+# WiFi country code.
+# Use the appropriate ISO 3166-1 alpha-2 country code for your jurisdiction.
+# We default to the country code for the University of Colorado.
+
+country=US
+
+network={
+    ssid="NameOfYourWifiNetwork"
+    scan_ssid=1
+    key_mgmt=WPA-PSK                # adjust as necessary
+    psk="your wifi password"        # make sure it doesn't end up on github
+    # You can also generate a hashed password with wpa_passphrase on your
+    # development machine. It's a little more discreet than a plain text string.
+}

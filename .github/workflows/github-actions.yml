@@ -1,0 +1,55 @@
+name: assignment-test
+on:
+    push:
+        tags-ignore:
+            - '*'
+        branches:
+            - '*'
+jobs:
+      full-test:  
+        runs-on: self-hosted
+        steps:
+          - uses: actions/checkout@v3
+            with:
+              clean: false
+              submodules: 'recursive'
+          - uses: webfactory/ssh-agent@v0.5.4
+            with:
+                 ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          - name: Prepare private files for build
+            timeout-minutes: 600
+            run: |
+               docker run --rm \
+                 -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
+                 -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
+                 -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+                 cuaesd/aesd-autotest:assignment6-yocto \
+                 --workdir=${GITHUB_WORKSPACE} \
+                 touch ./meta-aesd/recipes-aesd-assignments/wpa_supplicant/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf
+          - name: Run build
+            timeout-minutes: 600
+            run: |
+               docker run --rm \
+                 -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
+                 -e GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
+                 -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+                 cuaesd/aesd-autotest:assignment6-yocto \
+                 --workdir=${GITHUB_WORKSPACE} \
+                 ./build.sh
+          - name: Cleanup
+            if: always()
+            run: |
+              ssh-add -D
+# For the final project, I will not be using automatic testing, just building.
+# Automatic testing is not a requirement for the final assignment. A video 
+# demonstration is used instead.
+#          - name: Run full test
+#            timeout-minutes: 15
+#            run: |
+#               docker run --rm \
+#                 -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
+#                 cuaesd/aesd-autotest:assignment6-yocto \
+#                 --workdir=${GITHUB_WORKSPACE} \
+#                 ./full-test.sh
+
+# An extra step to publish a release would be nice to have here.
