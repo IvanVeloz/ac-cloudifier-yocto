@@ -11,6 +11,9 @@ CORE_IMAGE_EXTRA_INSTALL += "ntp"
 CORE_IMAGE_EXTRA_INSTALL += "tmux mosh"
 CORE_IMAGE_EXTRA_INSTALL += "nano"
 
+# ac-cloudifier application
+CORE_IMAGE_EXTRA_INSTALL += "acc-control"
+
 # ac-cloudifier-demo
 CORE_IMAGE_EXTRA_INSTALL += "lircdemo"
 CORE_IMAGE_EXTRA_INSTALL += "pigpiodemo"
