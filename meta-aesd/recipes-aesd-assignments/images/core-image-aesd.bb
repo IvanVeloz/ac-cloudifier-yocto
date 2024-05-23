@@ -1,6 +1,11 @@
 inherit core-image
+
 #CORE_IMAGE_EXTRA_INSTALL += "aesd-assignments"
+
+# Essentials
+#CORE_IMAGE_EXTRA_INSTALL += "wpa_supplicant linux-firmware-rpidistro-bcm43430"
 CORE_IMAGE_EXTRA_INSTALL += "openssh"
+CORE_IMAGE_EXTRA_INSTALL += "ntp"
 
 # For comfort
 CORE_IMAGE_EXTRA_INSTALL += "tmux mosh"
