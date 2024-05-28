@@ -7,7 +7,7 @@ git submodule sync
 git submodule update
 
 # local.conf won't exist until this step on first execution
-source poky/oe-init-build-env rpi-build
+source poky/oe-init-build-env rpi-build-nanbield
 
 # Add layers the project is dependent on
 bitbake-layers add-layer ../meta-raspberrypi
