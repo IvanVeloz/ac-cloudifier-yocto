@@ -9,8 +9,7 @@ DEPENDS += "opencv"
 SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier-demo;protocol=ssh;branch=main"
 
 PV = "1.0+git${SRCPV}"
-# Use the latest commit, always
-SRCREV = "b9d871e8f1d96602635a8148e401506e5573247e"
+SRCREV = "6b9de233bc088442caacb911ac5eabebcb81967a"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
