@@ -14,6 +14,7 @@ bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 
 CONFLINE="MACHINE = \"raspberrypi0-2w-64\""
 MACHINEFILE="../meta-aesd/conf/machine/raspberrypi0-2w-64.conf"
