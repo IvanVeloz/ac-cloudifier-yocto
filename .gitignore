@@ -1,6 +1,7 @@
 # From the template
 build
 rpi-build
+rpi-build-*
 .vscode
 valgrind-out.txt
 test.sh.log

@@ -6,11 +6,10 @@ DEPENDS += "opencv"
 
 # TODO: Set this  with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
-SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier-demo;protocol=ssh;branch=main"
+SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier-demo;protocol=ssh;branch=libcamera"
 
 PV = "1.0+git${SRCPV}"
-# Use the latest commit, always
-SRCREV = "b9d871e8f1d96602635a8148e401506e5573247e"
+SRCREV = "96281d768c0b1689d998751d6bf9588776a8d03b"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -23,8 +22,9 @@ inherit pkgconfig cmake
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 opencvdemo ${D}${bindir}
+    install -m 0755 ${S}/acc-vid.sh ${D}${bindir}
 }
 
 # NOTE: the image could be made smaller by using the individual opencv depends.
 # rather than the entire metapackage.
-RDEPENDS: += "opencv"
+RDEPENDS: += "opencv libcamera"

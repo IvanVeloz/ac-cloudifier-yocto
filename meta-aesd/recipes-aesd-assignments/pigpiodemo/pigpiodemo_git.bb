@@ -33,13 +33,6 @@ do_install () {
 	install -m 0755 ${S}/pigpiodemo ${D}${bindir}/pigpiodemo
 }
 
-do_install:append() {
-	#install -d ${D}${sysconfdir}
-	#install -d ${D}${sysconfdir}/lirc
-	#install -d ${D}${sysconfdir}/lirc/lircd.conf.d
-	#install -m 0644 ${S}/../lircd.conf.d/GE-AHP05LZQ2.lircd.conf ${D}${sysconfdir}/lirc/lircd.conf.d/GE-AHP05LZQ2.lircd.conf
-}
-
 RDEPENDS: += "pigpio-bin-pigpiod libpigpio"
 # uncomment pigpio-bin-pigs for CLI control
 RDEPENDS: += "pigpio-bin-pigs" 
