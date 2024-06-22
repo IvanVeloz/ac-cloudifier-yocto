@@ -31,3 +31,6 @@ CORE_IMAGE_EXTRA_INSTALL += "pigpio-bin-pigs"
 # adding python3-opencv and v4l-utils for opencv testing through the command line
 PACKAGECONFIG:pn-opencv += "python3"
 CORE_IMAGE_EXTRA_INSTALL += "python3-opencv v4l-utils"
+
+# adding tcpdump for general network troubleshooting
+CORE_IMAGE_EXTRA_INSTALL += "tcpdump"
