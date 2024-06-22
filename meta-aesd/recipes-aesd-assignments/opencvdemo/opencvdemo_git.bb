@@ -9,7 +9,7 @@ DEPENDS += "opencv"
 SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier-demo;protocol=ssh;branch=libcamera"
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "12895420d551d8eb86492f0591d2b3adc81b6788"
+SRCREV = "96281d768c0b1689d998751d6bf9588776a8d03b"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -22,6 +22,7 @@ inherit pkgconfig cmake
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 opencvdemo ${D}${bindir}
+    install -m 0755 ${S}/acc-vid.sh ${D}${bindir}
 }
 
 # NOTE: the image could be made smaller by using the individual opencv depends.
