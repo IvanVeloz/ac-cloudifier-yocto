@@ -6,7 +6,7 @@ DEPENDS += "pigpio lirc mosquitto"
 
 SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier;protocol=ssh;branch=main"
 PV = "1.0+git${SRCPV}"
-SRCREV = "2a30454ca7a5a08ffe50c7e695358048aa31fd41"
+SRCREV = "62a79b702b23d2c04d8921be0bf7f2a5e21f231a"
 
 S = "${WORKDIR}/git/acc-control"
 
