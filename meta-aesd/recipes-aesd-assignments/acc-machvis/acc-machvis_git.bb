@@ -11,7 +11,7 @@ SRCREV = "2a30454ca7a5a08ffe50c7e695358048aa31fd41"
 S = "${WORKDIR}/git/acc-machvis"
 
 RDEPENDS: += "${PYTHON_PN} ${PYTHON_PN}-numpy ${PYTHON_PN}-opencv"
-RDEPENDS: += "opencv"
+RDEPENDS: += "opencv libcamera libcamera-apps"
 
 do_install:append() {
     install -d ${D}${bindir}
