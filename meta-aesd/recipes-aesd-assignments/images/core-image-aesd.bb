@@ -10,6 +10,7 @@ CORE_IMAGE_EXTRA_INSTALL += "ntp"
 # For comfort
 CORE_IMAGE_EXTRA_INSTALL += "tmux mosh"
 CORE_IMAGE_EXTRA_INSTALL += "nano"
+CORE_IMAGE_EXTRA_INSTALL += "htop"
 
 # ac-cloudifier application
 CORE_IMAGE_EXTRA_INSTALL += "acc-control"
