@@ -22,7 +22,6 @@ inherit pkgconfig cmake
 do_install() {
     install -d ${D}${bindir}
     install -m 0755 opencvdemo ${D}${bindir}
-    install -m 0755 ${S}/acc-vid.sh ${D}${bindir}
 }
 
 # NOTE: the image could be made smaller by using the individual opencv depends.

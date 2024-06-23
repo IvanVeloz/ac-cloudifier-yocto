@@ -6,10 +6,17 @@ DEPENDS += "${PYTHON_PN} ${PYTHON_PN}-pip"
 
 SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier;protocol=ssh;branch=main"
 PV = "1.0+git${SRCPV}"
-SRCREV = "90a6a9a92b997170f73d43d6e909c2a2f39038c1"
+SRCREV = "2a30454ca7a5a08ffe50c7e695358048aa31fd41"
 
 S = "${WORKDIR}/git/acc-machvis"
 
-RDEPENDS: += "${PYTHON_PN} ${PYTHON_PN}-numpy ${PYTHON_PN}-opencv" 
+RDEPENDS: += "${PYTHON_PN} ${PYTHON_PN}-numpy ${PYTHON_PN}-opencv"
+RDEPENDS: += "opencv"
+
+do_install:append() {
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/utils/deviceside/acc-vid.sh ${D}${bindir}
+}
+
 
 inherit setuptools3

@@ -13,6 +13,7 @@ CORE_IMAGE_EXTRA_INSTALL += "nano"
 
 # ac-cloudifier application
 CORE_IMAGE_EXTRA_INSTALL += "acc-control"
+CORE_IMAGE_EXTRA_INSTALL += "acc-machvis"
 
 # ac-cloudifier-demo
 CORE_IMAGE_EXTRA_INSTALL += "lircdemo"
@@ -29,8 +30,7 @@ CORE_IMAGE_EXTRA_INSTALL += "libcamera libcamera-apps"
 CORE_IMAGE_EXTRA_INSTALL += "pigpio-bin-pigs"
 
 # adding python3-opencv and v4l-utils for opencv testing through the command line
-PACKAGECONFIG:pn-opencv += "python3"
 CORE_IMAGE_EXTRA_INSTALL += "python3-opencv v4l-utils"
 
-# adding tcpdump for general network troubleshooting
-CORE_IMAGE_EXTRA_INSTALL += "tcpdump"
+# adding tcpdump and netcat for general network troubleshooting
+CORE_IMAGE_EXTRA_INSTALL += "tcpdump netcat"
