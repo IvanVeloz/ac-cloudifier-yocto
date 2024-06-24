@@ -6,17 +6,30 @@ DEPENDS += "${PYTHON_PN} ${PYTHON_PN}-pip"
 
 SRC_URI = "git://git@github.com/IvanVeloz/ac-cloudifier;protocol=ssh;branch=main"
 PV = "1.0+git${SRCPV}"
-SRCREV = "ca34f3c737a39ec578a067ee46a328f20e08508c"
+SRCREV = "ca532f5e7b697a52d72b51c267ec76319add2747"
+SRC_URI:append = " file://acc-machvis.service "
+SRC_URI:append = " file://acc-vid.service "
 
 S = "${WORKDIR}/git/acc-machvis"
 
-RDEPENDS: += "${PYTHON_PN} ${PYTHON_PN}-numpy ${PYTHON_PN}-opencv"
-RDEPENDS: += "opencv libcamera libcamera-apps"
+
+SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_SERVICE:${PN} = "acc-vid.service acc-machvis.service"
+FILES:${PN} += "${systemd_unitdir}/system/acc-vid.service"
+FILES:${PN} += "${systemd_unitdir}/system/acc-machvisf.service"
 
 do_install:append() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/utils/deviceside/acc-vid.sh ${D}${bindir}
+    install -d ${D}/${systemd_unitdir}/system/
+	install -m 0644 ${WORKDIR}/acc-vid.service ${D}/${systemd_unitdir}/system/acc-vid.service
+    install -m 0644 ${WORKDIR}/acc-machvis.service ${D}/${systemd_unitdir}/system/acc-machvis.service
 }
 
+RDEPENDS: += "${PYTHON_PN}"
+RDEPENDS: += "${PYTHON_PN}-numpy ${PYTHON_PN}-opencv"
+RDEPENDS: += "python3-pigpio"
+RDEPENDS: += "opencv libcamera libcamera-apps"
 
 inherit setuptools3
+inherit systemd
