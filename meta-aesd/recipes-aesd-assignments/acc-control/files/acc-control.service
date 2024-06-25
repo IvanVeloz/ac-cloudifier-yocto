@@ -1,0 +1,12 @@
+[Unit]
+Description=acc-control startup script
+
+[Service]
+ExecStart=/usr/bin/acc-control
+Restart=always
+RestartSec=5
+StartLimitInterval=30
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
